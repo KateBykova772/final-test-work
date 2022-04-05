@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Zadacha1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] Mass1 = new string[] { "Hello", "2", "World", "^_^", "5", ":-)" };
+            Random rand = new Random();
+            List<string> lst = new List<string>();
+            int n = rand.Next(3); 
+            string[] Mass2 = new string[n];
+            int k;
+            for (int i = 0; i < Mass2.Length; i++)
+            {
+                while (true)
+                {
+                    k = rand.Next(Mass1.Length);
+                    if (!lst.Any(x => x.Equals(Mass1[k])))
+                    {
+                        lst.Add(Mass1[k]);
+                        Mass2[i] = Mass1[k];
+                        break;
+                    }
+                }
+            }
+            foreach (var x in Mass2)
+                Console.WriteLine(x);
+            Console.ReadKey();
+        }
+    }
+}
